@@ -3,7 +3,6 @@ from collections import Counter
 file=open('C:\\Users\\User\\Desktop\\new.txt',"r") 
 content=file.read()
 result = re.sub(r"[,@\'?\.$%_]", "", content)
-print(result)
 x = re.findall(r"\w+", result)
 x1=re.findall(r"\b\w+\s\w+",result,overlapped=True)
 print(Counter(x))
