@@ -11,10 +11,11 @@ content=f.read()
 def SpecialCharacterRemoval(content):
     result = re.sub(r"['(',')'@\'?\.$%_]", "", content)
     return(result)
- 
-        
-def Output(Out):
-    with open('result.csv', 'w', encoding='utf-8', newline='') as file:
+
+def writefile(num,Out):
+    res="result"+str(num)+"."+"csv"
+    print(res)
+    with open(res, 'w', encoding='utf-8', newline='') as file:
         writer = csv.writer(file)
         for key,value in Out.items():
             tmp=[key,value]
@@ -26,12 +27,10 @@ def Findgrams(file,num):
     token = nltk.word_tokenize(d)
     Ngrams= ngrams(token,num)
     Out=Counter(Ngrams)
-    Output(Out)
+    writefile(num,Out)
     
-
+Findgrams(content,1)
 Findgrams(content,6)
-
-
             
           
             
