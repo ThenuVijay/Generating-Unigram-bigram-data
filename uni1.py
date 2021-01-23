@@ -5,8 +5,11 @@ content=file.read()
 result = re.sub(r"[,@\'?\.$%_]", "", content)
 x = re.findall(r"\w+", result)
 x1=re.findall(r"\b\w+\s\w+",result,overlapped=True)
-print(Counter(x))
-print(Counter(x1))
+x2=re.findall(r"\b\w+\s\w+\s\w+",result,overlapped=True)
+print("Unigram"Counter(x))
+print("Bigram"Counter(x1))
+print("Trigram"Counter(x2))
+file.close()
 
 
 
