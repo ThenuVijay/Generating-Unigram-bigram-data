@@ -3,20 +3,23 @@ import re
 from nltk import word_tokenize
 from nltk.util import ngrams
 from collections import Counter
-f=open('C:\\Users\\User\\Desktop\\new.txt',"r") 
+f=open(r'C:\\Users\\User\\Desktop\\new.txt') 
 content=f.read()
-result = re.sub(r"['(',')'@\'?\.$%_]", "", content)
-token = nltk.word_tokenize(result)
-unigrams= ngrams(token,1)
-bigrams = ngrams(token,2)
-trigrams = ngrams(token,3)
-print("Unigrams:",Counter(unigrams))
-print()
-print("Bigrams: ",Counter(bigrams))
-print()
-print("Trigrams:" ,Counter(trigrams))
-print()
-f.close()
+
+def SpecialCharacterRemoval(content):
+    result = re.sub(r"['(',')'@\'?\.$%_]", "", content)
+    return(result)
+
+def Findgrams(file,num):
+    d=SpecialCharacterRemoval(file)
+    token = nltk.word_tokenize(d)
+    Ngrams= ngrams(token,num)
+    print(Counter(Ngrams)) 
+    print()
+
+Findgrams(content,1)  
+Findgrams(content,2)
+Findgrams(content,6)
 
 
 
