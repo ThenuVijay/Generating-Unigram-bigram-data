@@ -1,14 +1,14 @@
 import regex as re
 from collections import Counter
-file=open('C:\\Users\\User\\Desktop\\new.txt',"r") 
+file=open('C:\\Users\\User\\Desktop\\new2.txt',"r") 
 content=file.read()
 result = re.sub(r"[,'(',')'@\'?\.$%_]", "", content)
 x = re.findall(r"\w+", result)
 x1=re.findall(r"\b\w+\s\w+",result,overlapped=True)
 x2=re.findall(r"\b\w+\s\w+\s\w+",result,overlapped=True)
-print("Unigram"Counter(x))
-print("Bigram"Counter(x1))
-print("Trigram"Counter(x2))
+print("Unigram",Counter(x))
+print("Bigram",Counter(x1))
+print("Trigram",Counter(x2))
 file.close()
 
 
