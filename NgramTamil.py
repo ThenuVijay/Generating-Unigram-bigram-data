@@ -28,6 +28,9 @@ def Findgrams(file,num):
     Ngrams= ngrams(token,num)
     Out=Counter(Ngrams)
     writefile(num,Out)
+
+
+f.close()
     
 Findgrams(content,1)
 Findgrams(content,6)
