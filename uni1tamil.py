@@ -25,7 +25,7 @@ with open('bigram.csv', 'w', encoding='utf-8', newline='') as file:
         tmp=[key,value]
         writer.writerow(tmp)
         
-file.close()        
+        
 
 c3=Counter(x2)
 
@@ -34,4 +34,7 @@ with open('trigram.csv', 'w', encoding='utf-8', newline='') as file:
     for key,value in c3.items():
         tmp=[key,value]
         writer.writerow(tmp)
+        
+file.close()        
+        
 
