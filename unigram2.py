@@ -5,12 +5,17 @@ from nltk.util import ngrams
 from collections import Counter
 f=open('C:\\Users\\User\\Desktop\\new.txt',"r") 
 content=f.read()
-result = re.sub(r"[,@\'?\.$%_]", "", content)
+result = re.sub(r"['(',')'@\'?\.$%_]", "", content)
 token = nltk.word_tokenize(result)
 unigrams= ngrams(token,1)
 bigrams = ngrams(token,2)
-print(Counter(bigrams))
-print(Counter(unigrams))
+trigrams = ngrams(token,3)
+print("Unigrams:",Counter(unigrams))
+print()
+print("Bigrams: ",Counter(bigrams))
+print()
+print("Trigrams:" ,Counter(trigrams))
+print()
 f.close()
 
 
