@@ -7,6 +7,7 @@ import csv
 
 f=open(r'C:\\Users\\User\\Desktop\\Tamil Madurai.txt',encoding="utf-8") 
 content=f.read()
+f.close()
 
 def SpecialCharacterRemoval(content):
     result = re.sub(r"['(',')'@\'?\.$%_]", "", content)
@@ -19,7 +20,8 @@ def writefile(num,Out):
         writer = csv.writer(file)
         for key,value in Out.items():
             tmp=[key,value]
-            writer.writerow(tmp)    
+            writer.writerow(tmp)  
+    file.close()        
 
 
 def Findgrams(file,num):
@@ -30,7 +32,7 @@ def Findgrams(file,num):
     writefile(num,Out)
 
 
-f.close()
+
     
 Findgrams(content,1)
 Findgrams(content,6)
