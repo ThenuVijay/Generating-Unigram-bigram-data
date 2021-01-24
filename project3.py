@@ -6,9 +6,10 @@ from nltk.util import ngrams
 from collections import Counter
 
 file = urllib.request.urlopen('https://en.wikipedia.org/wiki/Life')
-file = file.read()
+file1 = file.read()
+file.close()
 
-content = bs.BeautifulSoup(file, 'lxml')
+content = bs.BeautifulSoup(file1, 'lxml')
 paragraphs = content.find_all('p')
 text = ''
 
