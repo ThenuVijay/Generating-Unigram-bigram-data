@@ -5,6 +5,7 @@ from nltk.util import ngrams
 from collections import Counter
 f=open(r'C:\\Users\\User\\Desktop\\new.txt') 
 content=f.read()
+f.close()
 
 def SpecialCharacterRemoval(content):
     result = re.sub(r"['(',')'@\'?\.$%_]", "", content)
@@ -14,7 +15,7 @@ def Findgrams(file,num):
     d=SpecialCharacterRemoval(file)
     token = nltk.word_tokenize(d)
     Ngrams= ngrams(token,num)
-    print(Counter(Ngrams)) 
+    print(Counter(Ngrams).most_common(10)) 
     print()
 
 Findgrams(content,1)  
